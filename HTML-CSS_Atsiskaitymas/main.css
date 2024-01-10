@@ -151,7 +151,7 @@ main {
             justify-content: flex-start;
             gap: 2rem;
             padding: 3rem 0;
-            overflow-y: auto;
+            overflow: auto;
             > .card {
                 display: flex;
                 flex-direction: column;
@@ -440,4 +440,3 @@ footer {
         display: none;
     }
 } 
-
