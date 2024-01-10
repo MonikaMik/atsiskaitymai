@@ -138,7 +138,6 @@ main {
             width: auto;
             object-fit: contain;
         }
-
     }
     > #showcase {
         padding: 2rem;
@@ -402,13 +401,9 @@ footer {
             gap: 2rem;
             > div {
                 min-width: calc(50% - 2rem);
-
             }
             > figure {
-
                 min-width: calc(50% - 2rem);
-
-
             }
         }
         > hr {
