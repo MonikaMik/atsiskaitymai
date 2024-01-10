@@ -150,6 +150,7 @@ main {
             justify-content: flex-start;
             gap: 2rem;
             padding: 3rem 0;
+            max-width: 100%;
             overflow: auto;
             > .card {
                 display: flex;
@@ -411,7 +412,7 @@ footer {
         }
     }
     footer {
-        padding: 4rem;
+        padding: 4rem 2rem;
         > .footerContainer {
             display: flex;
             align-items: center;
