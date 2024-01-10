@@ -48,7 +48,6 @@ button {
               rgba(255,124,59,1) 62%, 
               rgba(255,129,58,1) 80%, 
               rgba(152,225,159,1) 96%) border-box;
-    border-radius: 50em;
     border: 4px solid transparent;
 }
 
@@ -215,7 +214,7 @@ main {
             > h1 {
                 font-weight: 900;
                 font-size: 3.5rem;
-                color: #111'
+                color: #111;
             }
             > .mobileOnly {
                 width: 200%;
