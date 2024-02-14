@@ -14,7 +14,7 @@ document
         e.preventDefault();
 
         const kilosInput = parseFloat(e.target.elements.search.value);
-        
+
         const resultDiv = document.querySelector('#output');
         resultDiv.innerHTML = '';
 

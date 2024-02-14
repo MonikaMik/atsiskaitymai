@@ -16,22 +16,32 @@ fetch(ENDPOINT)
     .then(cars => {
         const outputDiv = document.querySelector('#output');
 
-        cars.forEach(car => {
-            const card = document.createElement('div');
-            card.classList.add('card');
-            
-            const brandTitle = document.createElement('h2');
-            brandTitle.textContent = car.brand;
-            
-            const modelsList = document.createElement('ul');
-            car.models.forEach(model => {
-                const modelItem = document.createElement('li');
-                modelItem.textContent = model;
-                modelsList.appendChild(modelItem);
-            });
-            card.append(brandTitle, modelsList);
-            
-            outputDiv.appendChild(card);
+        if(cars.length === 0) {
+            const noCarsFound = document.createElement('p');
+            noCarsFound.textContent = "No cars found.";
+            outputDiv.appendChild(noCarsFound);
+        } else {
+            cars.forEach(car => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                
+                const brandTitle = document.createElement('h2');
+                brandTitle.textContent = car.brand;
+                
+                const modelsList = document.createElement('ul');
+                car.models.forEach(model => {
+                    const modelItem = document.createElement('li');
+                    modelItem.textContent = model;
+                    modelsList.appendChild(modelItem);
+                });
+                card.append(brandTitle, modelsList);
+                
+                outputDiv.appendChild(card);
         })
+        }
     })
-        .catch(error => console.error(error))
+    .catch(error => {
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = `Failed to fetch. Error: ${error.message}`;
+        document.querySelector('#output').appendChild(errorMessage);
+    })

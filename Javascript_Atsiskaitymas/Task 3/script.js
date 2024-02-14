@@ -16,15 +16,34 @@ const ENDPOINT = 'https://api.github.com/users';
 document
     .querySelector('#btn')
     .addEventListener('click', () => {
-        document.querySelector('#message').remove();
+        const messageElement = document.querySelector('#message');
+        messageElement && messageElement.remove();
+
+        const outputElement = document.querySelector('#output');
+        outputElement.innerHTML = "";
 
         fetch(ENDPOINT)
-            .then(res => res.json())
-            .then(users => {
-                users.forEach(user => {
-                    const card = new UserCard(user);
-                    document.querySelector('#output').appendChild(card);
-                });
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error status: ${res.status}`);
+                }
+                return res.json();
             })
-            .catch((error)=>{ console.log(error) })
+            .then(users => {
+                if (users.length === 0) {
+                    const noDataMessage = document.createElement('p');
+                    noDataMessage.textContent = 'No users found.';
+                    outputElement.appendChild(noDataMessage);
+                } else {
+                    users.forEach(user => {
+                        const card = new UserCard(user);
+                        outputElement.appendChild(card);
+                    });
+                }
+            })
+            .catch(error => {
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = `Failed to fetch users. ${error.message}`;
+                outputElement.appendChild(errorMessage);
+            })
     })

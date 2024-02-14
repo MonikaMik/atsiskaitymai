@@ -21,8 +21,9 @@ const users = [
 ];
 
 const getUserAverageAge = usersArray => {
-  const totalAge = usersArray.reduce((sum, user) => sum + user.age, 0);
-  return totalAge / usersArray.length;
+  const sumOfAllAges = usersArray.reduce((sum, user) => sum + user.age, 0);
+  return sumOfAllAges / usersArray.length;
 };
 
 const getUsersNames = usersArray => usersArray.map(user => user.name);
+
