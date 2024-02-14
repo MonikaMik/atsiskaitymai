@@ -23,7 +23,3 @@ const users = [
 const filterDogOwners = usersArray => usersArray.filter(user => user.hasDog === true);
 
 const filterAdults = usersArray => usersArray.filter(user => user.age >= 18);
-
-console.log(filterDogOwners(users));
-console.log(filterAdults(users));
-
