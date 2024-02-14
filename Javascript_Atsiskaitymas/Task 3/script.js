@@ -9,5 +9,22 @@ Paspaudus mygtuką "Show users":
 
 Pastaba: Informacija apie user'į (jo kortelė) bei turi turėti bent minimalų stilių;
 -------------------------------------------------------------------------- */
+import UserCard from './components/UserCard.js'
 
 const ENDPOINT = 'https://api.github.com/users';
+
+document
+    .querySelector('#btn')
+    .addEventListener('click', () => {
+        document.querySelector('#message').remove();
+
+        fetch(ENDPOINT)
+            .then(res => res.json())
+            .then(users => {
+                users.forEach(user => {
+                    const card = new UserCard(user);
+                    document.querySelector('#output').appendChild(card);
+                });
+            })
+            .catch((error)=>{ console.log(error) })
+    })

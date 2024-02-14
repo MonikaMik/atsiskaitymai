@@ -58,4 +58,19 @@
   padding: 30px;
   border-radius: 5px;
   background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.userCard {
+  border: 2px solid black;
+  border-radius: 1rem;
+  background-color: black;
+  text-align: center;
+  padding: 1rem;
+  > img {
+    width: 200px;
+  }
 }
